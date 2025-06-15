@@ -4,7 +4,7 @@
 This library is easy to integrate with lots of sketches which use Ethernet or WiFi.
 **PubSubClient ([MQTT](http://mqtt.org/))**, **[Blynk](http://blynk.cc)**, **HTTP Client** and **File Download** examples are provided.
 
-![examples](/extras/examples.png)
+
 
 ### TinyGSM is tiny
 The complete WebClient example for Arduino Uno (via Software Serial) takes little resources:
@@ -49,9 +49,6 @@ TinyGSM also pulls data gently from the modem (whenever possible), so it can ope
 - Digi XBee S6B, XBee LTE Cat 1, XBee3 LTE Cat 1, XBee3 CatM
 - Nimbelink Skywire/Airgain NL-SW-LTE-QBG96, NL-SW-LTE-QBG95
 - RAK WisLTE ***(alpha)***
-- ... other modules, based on supported modems. Some boards require [**special configuration**](https://github.com/vshymanskyy/TinyGSM/wiki/Board-configuration).
-
-Watch this repo for new updates! And of course, contributions are welcome ;)
 
 ## Features
 
@@ -340,4 +337,4 @@ Depending on your region/firmware, one or the other may not work for you.
 Try both and use whichever is more stable.
 If you do not need SSL, I recommend starting with `TINY_GSM_MODEM_SIM7000`.
 
-__________
+
