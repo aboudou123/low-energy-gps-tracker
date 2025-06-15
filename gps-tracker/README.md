@@ -336,5 +336,53 @@ The "SSL" version uses the SIM7000's "application" commands while the other uses
 Depending on your region/firmware, one or the other may not work for you.
 Try both and use whichever is more stable.
 If you do not need SSL, I recommend starting with `TINY_GSM_MODEM_SIM7000`.
+=============================================================================
+
+<img width="718" alt="gp1_0" src="https://github.com/user-attachments/assets/b34702ba-4825-4b5e-bfe8-b740d052a571" />
+
+
+<img width="851" alt="gp1_1" src="https://github.com/user-attachments/assets/34b2a47e-84df-4f89-bc9e-64612cf5f96e" />
+
+
+<img width="1046" alt="gp2" src="https://github.com/user-attachments/assets/41879c8a-a6e9-4cf5-a3c0-a9cabfbd598b" />
+
+
+<img width="1161" alt="gp3" src="https://github.com/user-attachments/assets/3c224afc-cda7-4fca-88b8-b358146bc921" />
+
+
+<img width="1245" alt="gp4" src="https://github.com/user-attachments/assets/1558b643-fb5a-4f5a-94fc-99e9fa1d5d5f" />
+
+<img width="694" alt="gp5" src="https://github.com/user-attachments/assets/721bd17b-b35e-4dc9-b346-643a8f9d8084" />
+
+
+<img width="1251" alt="gp6" src="https://github.com/user-attachments/assets/3f80c307-1281-43a1-90a8-ef1e89945e7b" />
+
+<img width="1209" alt="gp7" src="https://github.com/user-attachments/assets/dc71342c-394f-4317-881c-56fc7db835bc" />
+
+<img width="1195" alt="gp8" src="https://github.com/user-attachments/assets/f061335a-517b-472c-824f-1ca9d6ed5ebf" />
+
+
+<img width="1128" alt="gp9" src="https://github.com/user-attachments/assets/96b1635f-7a89-43a9-b271-4a9de977d25b" />
+
+
+<img width="1210" alt="gp10" src="https://github.com/user-attachments/assets/dfec02aa-4f42-41c2-9d61-0697d5db5f8d" />
+
+
+
+<img width="1210" alt="gp10" src="https://github.com/user-attachments/assets/4b7660b4-805d-45bf-bbe0-c63086185649" />
+
+<img width="761" alt="gp11" src="https://github.com/user-attachments/assets/22e7c95f-6fce-4571-9b41-e666494fa800" />
+<img width="761" alt="gp11" src="https://github.com/user-attachments/assets/8f34de26-a23b-4441-a9cc-b53ae09a5f2f" />
+
+
+
+
+
+
+
+
+
+
+
 
 
