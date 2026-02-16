@@ -45,6 +45,7 @@ Table of Contents
   - Wireless Network
   - Wearable Sensors
   - Cloud Analysis Services
+
     
 • System Architecture
 
@@ -61,8 +62,11 @@ Table of Contents
 **Research Objective**
 
 • Explain what GPS and other tracking technologies are.
+
 • Describe the structure and functionality of the GPS system.
+
 • Research the technologies involved in developing GPS tracking systems.
+
 • Compare various IoT technologies: Low-Power Wide-Area Network (LPWA).
 
 # What is GPS?
@@ -71,9 +75,9 @@ Global Positioning System (GPS) is a network of satellites that orbit the Earth,
 
 ## Segments of GPS
 
-Space Segment: The satellites themselves.
-Ground Segment: The infrastructure that controls the satellites.
-User Segment: The devices that receive GPS signals.
+*Space Segment: The satellites themselves.
+*Ground Segment: The infrastructure that controls the satellites.
+*User Segment: The devices that receive GPS signals.
 
 ## Primary Functions
 
