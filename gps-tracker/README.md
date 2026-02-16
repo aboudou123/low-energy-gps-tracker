@@ -15,6 +15,7 @@ Das Projekt konzentriert sich auf die Symbiose zweier kritischer Erfolgskriterie
 Der mobile Betrieb stellt hohe Anforderungen an das Energiemanagement.
 
 * **Ziel:** Ein minimaler Energieverbrauch.
+  
 * **Fokus:** Besonders in Ruhephasen, in denen der Tracker nicht aktiv benötigt wird, muss die Laufzeit maximiert werden.
 
 ### 2. Zuverlässigkeit & Netzabdeckung
@@ -22,13 +23,14 @@ Der mobile Betrieb stellt hohe Anforderungen an das Energiemanagement.
 Die Funktionalität muss auch unter schwierigen Bedingungen sichergestellt sein.
 
 * **Herausforderung:** Einsatz in Zielgebieten mit unzureichender stationärer Mobilfunkabdeckung.
-* 
+
 * **Lösung:** Gewährleistung der Standortermittlung und Datenübertragung trotz schwacher Infrastruktur.
 
 ---
 ## Lesons
 
-Low-Energy GPS Tracker
+**Low-Energy GPS Tracker**
+
 Table of Contents
 
 • Research Objective
@@ -76,24 +78,32 @@ Global Positioning System (GPS) is a network of satellites that orbit the Earth,
 
 ## Segments of GPS
 
-*Space Segment: The satellites themselves.
-*Ground Segment: The infrastructure that controls the satellites.
-*User Segment: The devices that receive GPS signals.
+Space Segment: The satellites themselves.
+
+Ground Segment: The infrastructure that controls the satellites.
+
+User Segment: The devices that receive GPS signals.
 
 ## Primary Functions
 
 • Positioning and coordinates.
+
 • Measuring distance and direction between waypoints.
+
 • Progress reporting for travel.
+
 • Accurate timekeeping.
 
 ## Literature Review
+
 • IBM Tracking Solution: Investigates advanced tracking methodologies and their applications.
 
 ## Problem Statement
 
 Poaching threatens thousands of endangered species annually.
+
 Research indicates that animal movement varies based on perceived threats. 
+
 The aim is to develop an early warning system that alerts rangers to poachers' presence using a long-range IoT tracking system with LoRaWAN.
 
 ## Implementation
@@ -111,6 +121,7 @@ The aim is to develop an early warning system that alerts rangers to poachers' p
 • Employs cloud-based services for data analysis and reporting.
 
 ## System Architecture
+
 ### Hardware Components
 
 • Arduino Mega
