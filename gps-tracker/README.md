@@ -287,22 +287,39 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **Unterstützte Modems**
 
 • SIMCom SIM800-Serie (SIM800A, SIM800C, SIM800L, SIM800H, SIM808, SIM868)
+
 • SIMCom SIM900-Serie (SIM900A, SIM900D, SIM908, SIM968)
+
 • SIMCom WCDMA/HSPA/HSPA+ Module (SIM5360, SIM5320, SIM5300E, SIM5300E/A)
+
 • SIMCom LTE Module (SIM7100E, SIM7500E, SIM7500A, SIM7600C, SIM7600E)
+
 • SIMCom SIM7000E/A/G CAT-M1/NB-IoT Modul
+
 • SIMCom SIM7070/SIM7080/SIM7090 CAT-M1/NB-IoT Modul
+
 • SIMCom A7672X CAT-M1 Modul
+
 • AI-Thinker A6, A6C, A7, A20
+
 • ESP8266/ESP32 (AT-Befehlsschnittstelle, ähnlich GSM-Modems)
+
 • Digi XBee WiFi und Cellular (über XBee-Kommandomodus)
+
 • Neoway M590
+
 • u-blox 2G, 3G, 4G und LTE Cat1 Mobilfunkmodems
+
 • u-blox LTE-M/NB-IoT Modems
+
 • Sequans Monarch LTE Cat M1/NB1 (VZM20Q)
+
 • Quectel BG96
+
 • Quectel BG95
+
 • Quectel M95
+
 • Quectel MC60 (alpha)
 
 ---
@@ -310,14 +327,23 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **Unterstützte Boards/Module**
 
 • EnviroDIY LTE Bee, WiFi Bee
+
 • Arduino MKR GSM 1400
+
 • Sodaq GPRSbee, uBee
+
 • Microduino GSM
+
 • Adafruit FONA Mini Cellular GSM Breakout, 800/808 Shield, FONA 3G
+
 • Industruino GSM
+
 • Dragino NB-IoT Bee
+
 • Digi XBee S6B, XBee LTE Cat 1, XBee3 LTE Cat 1, XBee3 CatM
+
 • Nimbelink Skywire/Airgain NL-SW-LTE-QBG96, NL-SW-LTE-QBG95
+
 • RAK WisLTE (alpha)
 
 ---
@@ -327,15 +353,21 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **Datenverbindungen**
 
 • TCP (HTTP, MQTT, Blynk, …)
+
  - ALLE Module unterstützen TCP-Verbindungen
+ 
  - Die meisten Module unterstützen mehrere gleichzeitige Verbindungen (siehe jeweilige Limits)
 
 • UDP
+
  - Derzeit von keinem Modul unterstützt
 
 • SSL/TLS (HTTPS)
+
  - Unterstützt auf bestimmten Modellen/Firmwareständen
+ 
  - Wie TCP meist mehrere gleichzeitige Verbindungen möglich
+ 
  - TCP- und SSL-Verbindungen können kombiniert werden
 
 ---
@@ -343,7 +375,9 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **USSD**
 
 • Senden von USSD-Anfragen und Dekodieren von 7-, 8- und 16-Bit-Antworten
+
  - Unterstützt auf den meisten Mobilfunkmodems
+ 
  - Nicht möglich auf XBee und ESP8266
 
 ---
@@ -358,8 +392,11 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **Sprachanrufe**
 
 • Unterstützt auf ausgewählten Modems
+
 • Funktionen:
+
  - Wählen, Auflegen
+ 
  - DTMF senden
 
 ---
@@ -367,6 +404,7 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **Standort**
 
 • GPS/GNSS auf unterstützten Modellen
+
 • GSM-Standortdienst verfügbar auf ausgewählten Modems
 
 ---
@@ -376,15 +414,24 @@ So haben Sie mehr Speicherplatz für Ihre Experimente.
 ## **Erste Schritte**
 
 1. Mit Ihrem Telefon:
+   
     - PIN-Code der SIM deaktivieren
+   
     - Guthaben prüfen
+   
     - APN, Benutzer und Passwort prüfen und Internetverbindung sicherstellen
-2. SIM-Karte korrekt einsetzen
-3. GSM-Antenne fest anschließen
-4. Stabile Stromversorgung mit mindestens 2 A sicherstellen
-5. Serielle Verbindung prüfen (Hardware Serial empfohlen)
+   
+3. SIM-Karte korrekt einsetzen
+   
+5. GSM-Antenne fest anschließen
+   
+7. Stabile Stromversorgung mit mindestens 2 A sicherstellen
+   
+9. Serielle Verbindung prüfen (Hardware Serial empfohlen)
+    
     Senden Sie einen **`AT`**-Befehl mit dem Beispielsketch
-6. Testen Sie das **WebClient**-Beispiel
+   
+11. Testen Sie das **WebClient**-Beispiel
 
 ---
 
@@ -406,21 +453,27 @@ Der allgemeine Ablauf Ihres Codes sollte sein:
  - oder **`TinyGsmClientSecure client(modem);`**
 
 • Serielle Kommunikation starten, Pins konfigurieren, Modul initialisieren
+
 • Auf Bereitschaft warten
+
 • Modem initialisieren
  - **`modem.init()`** oder **`modem.restart()`**
 
 • SIM ggf. entsperren
- - **`modem.simUnlock(GSMPIN)`**
+
+ - **`modem.simUnlock(GSMPIN)`**
 
 • Netzwerkverbindung aufbauen
- - **`modem.waitForNetwork(600000L)`**
+
+ - **`modem.waitForNetwork(600000L)`**
 
 • Datenverbindung herstellen
- - **`modem.gprsConnect(apn, gprsUser, gprsPass)`**
+
+ - **`modem.gprsConnect(apn, gprsUser, gprsPass)`**
 
 • TCP/SSL-Client verbinden
- **`client.connect(server, port)`**
+
+ **`client.connect(server, port)`**
 
 • Daten senden
 
@@ -454,8 +507,11 @@ Viele Module benötigen bis zu 2 A zum Verbinden mit dem Netzwerk – viermal so
 Eine bessere Stromversorgung behebt häufig Stabilitätsprobleme.
 
 • Kabel kurz halten
+
 • Verbindungen löten
+
 • Abstand zu Störquellen einhalten
+
 • Stromversorgung prüfen
 
 ---
