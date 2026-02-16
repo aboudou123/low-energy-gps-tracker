@@ -190,9 +190,43 @@ Low Power Wide Area Networks (LPWAN) are designed for IoT applications, addressi
 
 
 =================================
-# PROJEKT UMSEZUNG
+# PROJEKT UMSEZUNG II
 ===================================
 
+---
+
+## Phase 2: Implementierung mit SIM-Karte
+
+In dieser Phase liegt der Schwerpunkt auf der Konnektivität und der Datenübertragung unter realen Bedingungen. Um die Anforderungen aus der Motivation (Energieeffizienz vs. Erreichbarkeit) zu erfüllen, werden folgende Aspekte umgesetzt:
+
+### 1. Hardware & Konnektivität
+
+* **SIM-Auswahl:** Einsatz von M2M-SIM-Karten (Multi-Netz-Fähigkeit), um bei Jagdeinsätzen automatisch das stärkste verfügbare Mobilfunknetz zu wählen.
+* **Modul-Wahl:** Verwendung von stromsparenden Funktechnologien wie **LTE-M** (Cat-M1) oder **NB-IoT**, die speziell für hohe Reichweite bei geringem Energiebedarf entwickelt wurden.
+
+### 2. Optimierung des Datenverbrauchs
+
+Um die Akkulaufzeit trotz aktiver SIM-Verbindung zu maximieren, werden folgende Protokolle implementiert:
+
+* **UDP/MQTT-Integration:** Schlanke Datenprotokolle statt schwerfälligem HTTP, um die Sendezeit des Funkmoduls zu minimieren.
+* **Intervall-Steuerung:** Dynamische Anpassung der Sendeintervalle (z. B. 30 Sekunden bei Bewegung, 1 Stunde im Ruhemodus).
+
+### 3. Fallback-Strategien
+
+Da die Mobilfunkabdeckung laut Aufgabenstellung lückenhaft sein kann:
+
+* **Lokaler Cache:** Speicherung der GPS-Koordinaten auf dem internen Speicher, falls kein Netz verfügbar ist.
+* **Burst-Upload:** Sobald wieder eine Verbindung besteht, werden alle zwischengespeicherten Datenpakete gesammelt übertragen.
+
+### Technische Anforderungen (Tabelle)
+
+| Feature | Spezifikation | Zielsetzung |
+| --- | --- | --- |
+| **Netzstandard** | LTE-M / NB-IoT | Hohe Gebäudedurchdringung & Reichweite |
+| **Roaming** | National Roaming | Beste Abdeckung im Wald/Jagdgebiet |
+| **Power Mode** | PSM (Power Saving Mode) | Standby-Stromverbrauch reduzieren |
+
+---
 
 
 # Arduino Client interface support
