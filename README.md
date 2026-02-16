@@ -92,6 +92,13 @@ The aim is to develop an early warning system that alerts rangers to poachers' p
 • Employs cloud-based services for data analysis and reporting.
 
 ## System Architecture
+
+<img width="938" height="608" alt="image" src="https://github.com/user-attachments/assets/159c0271-ee89-4509-9a88-c138cb3fabd8" />
+
+
+
+
+
 ### Hardware Components
 
 • Arduino Mega
