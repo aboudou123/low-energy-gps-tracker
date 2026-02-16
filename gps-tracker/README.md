@@ -262,6 +262,294 @@ Da die Mobilfunkabdeckung laut Aufgabenstellung lückenhaft sein kann:
 
 ---
 
+``markdown
+Arduino Client-Hardware-Unterstützung
+
+Diese Bibliothek lässt sich leicht mit vielen Skizzen integrieren, die Ethernet oder WiFi verwenden. PubSubClient (MQTT), Blynk, HTTP Client und Dateidownload-Beispiele sind enthalten.
+
+TinyGSM ist klein
+Das vollständige WebClient-Beispiel für Arduino Uno (über Software Serial) benötigt nur wenig Ressourcen:
+`
+Der Sketch verwendet 15022 Bytes (46%) des Programmspeichers. Maximal sind 32256 Bytes verfügbar.
+Globale Variablen verwenden 574 Bytes (28%) des dynamischen Speichers, was 1474 Bytes für lokale Variablen lässt. Maximal sind 2048 Bytes verfügbar.
+`
+Die Arduino GSM-Bibliothek verwendet 15868 Bytes (49%) des Flash-Speichers und 1113 Bytes (54%) des RAM in einem ähnlichen Szenario. TinyGSM holt sich auch sanft Daten vom Modem (wann immer möglich), sodass es mit sehr wenig RAM arbeiten kann. Jetzt haben Sie mehr Platz für Ihre Experimente.
+
+Unterstützte Modems
+• SIMCom SIM800-Serie (SIM800A, SIM800C, SIM800L, SIM800H, SIM808, SIM868)
+• SIMCom SIM900-Serie (SIM900A, SIM900D, SIM908, SIM968)
+• SIMCom WCDMA/HSPA/HSPA+ Module (SIM5360, SIM5320, SIM5300E, SIM5300E/A)
+• SIMCom LTE-Module (SIM7100E, SIM7500E, SIM7500A, SIM7600C, SIM7600E)
+• SIMCom SIM7000E/A/G CAT-M1/NB-IoT Modul
+• SIMCom SIM7070/SIM7080/SIM7090 CAT-M1/NB-IoT Modul
+• SIMCom A7672X CAT-M1 Modul
+• AI-Thinker A6, A6C, A7, A20
+• ESP8266/ESP32 (AT-Befehlsoberfläche, ähnlich wie GSM-Modems)
+• Digi XBee WiFi und Cellular (im XBee-Befehlsmodus)
+• Neoway M590
+• u-blox 2G, 3G, 4G und LTE Cat1 Cellular-Modems (viele Module, einschließlich LEON-G100, LISA-U2xx, SARA-G3xx, SARA-U2xx, TOBY-L2xx, LARA-R2xx, MPCI-L2xx)
+• u-blox LTE-M/NB-IoT Modems (SARA-R4xx, SARA-N4xx, SARA-R5xx, aber NICHT SARA-N2xx)
+• Sequans Monarch LTE Cat M1/NB1 (VZM20Q)
+• Quectel BG96
+• Quectel BG95
+• Quectel M95
+• Quectel MC60 (Alpha)
+
+Unterstützte Boards/Module
+• EnviroDIY LTE Bee, WiFi Bee
+• Arduino MKR GSM 1400
+• Sodaq GPRSbee, uBee
+• Microduino GSM
+• Adafruit FONA Mini Cellular GSM Breakout, 800/808 Shield, FONA 3G
+• Industruino GSM
+• Dragino NB-IoT Bee
+• Digi XBee S6B, XBee LTE Cat 1, XBee3 LTE Cat 1, XBee3 CatM
+• Nimbelink Skywire/Airgain NL-SW-LTE-QBG96, NL-SW-LTE-QBG95
+• RAK WisLTE (Alpha)
+
+Funktionen
+
+Datenverbindungen
+• TCP (HTTP, MQTT, Blynk, ...)
+    - ALLE Module unterstützen TCP-Verbindungen
+    - Die meisten Module unterstützen mehrere gleichzeitige Verbindungen:
+        - A6/A7 - 8
+        - ESP8266 - 5
+        - Neoway M590 - 2
+        - Quectel BG96 - 12
+        - Quectel BG95 - 12
+        - Quectel M95 - 6
+        - Quectel MC60/MC60E - 6
+        - Sequans Monarch - 6
+        - SIM 800/900 - 5
+        - SIM 5360/5320/5300/7100 - 10
+        - SIM7000 - 8 möglich ohne SSL, nur 2 mit SSL
+        - SIM 7070/7080/7090 - 12
+        - SIM 7500/7600/7800 - 10
+        - SIM A7672X - 10
+        - u-blox 2G/3G - 7
+        - u-blox SARA R4/N4 - 7
+        - Digi XBee - nur 1 Verbindung unterstützt!
+• UDP
+    - Noch nicht auf einem Modul unterstützt, könnte aber eines Tages kommen
+• SSL/TLS (HTTPS)
+    - Unterstützt auf:
+        - SIM800, SIM7000, A7672X, u-Blox, XBee mobil, ESP8266, Sequans Monarch und Quectel BG95 und BG96
+        - Hinweis: nur einige Geräte-Modelle oder Firmware-Versionen verfügen über diese Funktion (SIM8xx R14.18, A7 usw.)
+    - Noch nicht unterstützt auf:
+        - SIM 5360/5320/7100, SIM 7500/7600/7800
+    - Nicht möglich auf:
+        - SIM900, A6/A7, Neoway M590, XBee WiFi
+    - Wie TCP unterstützen die meisten Module gleichzeitige Verbindungen
+    - TCP- und SSL-Verbindungen können in der Regel gemischt werden, bis zur maximal möglichen Anzahl an Verbindungen
+
+USSD
+• Senden von USSD-Anfragen und Decodierung von 7, 8, 16-Bit-Antworten
+    - Unterstützt auf:
+        - Alle SIMCom-Modems, Quectel-Modems, die meisten u-blox
+    - Nicht möglich auf:
+        - XBee, u-blox SARA R4/N4, ESP8266 (offensichtlich)
+
+SMS
+• Nur das Senden von SMS wird unterstützt, nicht das Empfangen
+    - Unterstützt auf allen Mobilfunkmodulen
+
+Sprachanrufe
+• Unterstützt auf:
+    - SIM800/SIM900, SIM7600, A6/A7, Quectel-Modems, u-blox
+• Noch nicht unterstützt auf:
+    - SIM7000, SIM5360/5320/7100, SIM7500/7800, VZM20Q (Monarch)
+• Nicht möglich auf:
+    - XBee (jeder Typ), u-blox SARA R4/R5/N4, Neoway M590, ESP8266 (offensichtlich)
+• Funktionen:
+    - Wählen, auflegen
+    - DTMF senden
+
+Standort
+• GPS/GNSS
+    - SIM808, SIM7000, SIM7500/7600/7800, BG96, BG95, u-blox
+    - HINWEIS: u-blox-Chips haben KEIN eingebautes GPS - diese Funktionalität funktioniert nur, wenn ein sekundäres GPS mit dem primären Mobilfunkchip über I2C verbunden ist
+• GSM-Standortdienst
+    - SIM800, SIM7000, Quectel, u-blox
+
+Erste Schritte
+Erste Schritte
+Verwenden Sie Ihr Telefon:
+    - Deaktivieren Sie den PIN-Code auf der SIM-Karte
+    - Überprüfen Sie Ihr Guthaben
+    - Überprüfen Sie, ob APN, Benutzer, Passwort korrekt sind und Sie Internet haben
+Stellen Sie sicher, dass die SIM-Karte korrekt in das Modul eingelegt ist
+Stellen Sie sicher, dass die GSM-Antenne fest angeschlossen ist
+Stellen Sie sicher, dass Sie eine stabile Stromversorgung für das Modul von mindestens 2A haben.
+Überprüfen Sie, ob die serielle Verbindung funktioniert (Hardware Serial wird empfohlen)
+   Senden Sie einen `AT`-Befehl mit diesem Sketch
+Probieren Sie das WebClient Beispiel aus
+
+Schreiben Sie Ihren eigenen Code
+
+Der allgemeine Ablauf Ihres Codes sollte folgendermaßen aussehen:
+• Definieren Sie das Modul, das Sie verwenden (wählen Sie eines und nur eines)
+    - z. B. `#define TINYGSMMODEMSIM800`
+• Fügen Sie TinyGSM hinzu
+    - `#include <TinyGsmClient.h>`
+• Erstellen Sie eine TinyGSM-Modeminstanz
+    - `TinyGsm modem(SerialAT);`
+• Erstellen Sie eine oder mehrere TinyGSM-Clientinstanzen
+    - Für eine einzelne Verbindung verwenden Sie
+        - `TinyGsmClient client(modem);`
+        oder
+        `TinyGsmClientSecure client(modem);` (auf unterstützten Modulen)
+    - Für mehrere Verbindungen (auf unterstützten Modulen) verwenden Sie:
+        - `TinyGsmClient clientX(modem, 0);`, `TinyGsmClient clientY(modem, 1);`, usw.
+          oder
+        - `TinyGsmClientSecure clientX(modem, 0);`, `TinyGsmClientSecure clientY(modem, 1);`, usw.
+    - Sichere und unsichere Clients können in der Regel gemischt verwendet werden, wenn mehrere Verbindungen verwendet werden.
+    - Die Gesamtanzahl der möglichen Verbindungen variiert je nach Modul
+• Beginnen Sie Ihre serielle Kommunikation und setzen Sie alle Ihre Pins gemäß den Anforderungen zum Betrieb Ihres Moduls in Betrieb.
+    - Die Beispiele versuchen, die Baudrate des Moduls zu erraten. In funktionsfähigem Code sollten Sie eine festgelegte Baudrate verwenden.
+• Warten Sie, bis das Modul bereit ist (das kann bis zu 6 Sekunden dauern, je nach Modul)
+• Initialisieren Sie das Modem
+    - `modem.init()` oder `modem.restart()`
+    - Ein Neustart dauert in der Regel länger als eine Initialisierung, stellt jedoch sicher, dass das Modul keine bestehenden Verbindungen hat
+• Entsperren Sie Ihre SIM, falls erforderlich:
+    - `modem.simUnlock(GSMPIN)`
+• Wenn Sie WiFi verwenden, geben Sie Ihre SSID-Informationen an:
+    - `modem.networkConnect(wifiSSID, wifiPass)`
+    - Die Netzwerkanmeldung sollte bei Mobilfunkmodulen automatisch erfolgen
+• Warten Sie, bis die Netzwerkanmeldung erfolgreich war
+    - `modem.waitForNetwork(600000L)`
+• Wenn Sie Mobilfunk verwenden, stellen Sie die GPRS- oder EPS-Datenverbindung nach der erfolgreichen Anmeldung im Netzwerk her
+    - `modem.gprsConnect(apn, gprsUser, gprsPass)` (oder einfach `modem.gprsConnect(apn)`)
+    - Der gleiche Befehl wird sowohl für GPRS- als auch für EPS-Verbindungen verwendet
+    - Wenn Sie eine Digi-Marken-Mobilfunk-XBee verwenden, müssen Sie Ihre GPRS/EPS-Verbindungsinformationen vor der Wartezeit für das Netzwerk festlegen. Dies gilt NUR für Digi-Mobilfunk-XBees! Für alle anderen Mobilfunkmodule verwenden Sie die GPRS-Verbindungsfunktion nach der Netzwerkanmeldung.
+• Verbinden Sie den TCP- oder SSL-Client
+    `client.connect(server, port)`
+• Senden Sie Ihre Daten aus.
+
+Wie funktioniert es?
+
+Viele GSM-Modems, WiFi- und Funkmodule können gesteuert werden, indem AT-Befehle über Serial gesendet werden. TinyGSM weiß, welche Befehle gesendet werden müssen und wie AT-Antworten behandelt werden, und verpackt dies in die standardisierte Arduino-Client-Oberfläche.
+
+Diese Bibliothek ist in allen ihrer Kommunikation "blockierend". Abhängig von der Funktion kann Ihr Code für längere Zeit blockiert werden, während auf die Antworten des Moduls gewartet wird. Abgesehen von den offensichtlichen (d.h. waitForNetwork()) können auch mehrere andere Funktionen Ihren Code für bis zu mehrere Minuten blockieren. Die Funktionen gprsConnect() und client.connect() blockieren normalerweise am längsten, besonders in Gebieten mit schlechterem Empfang. Das Herunterfahren und Neustarten des Moduls kann ebenfalls recht langsam sein.
+
+Diese Bibliothek unterstützt keine Art von "Hardware"- oder Pin-steuerungsfunktionen für die Module. Wenn Sie Ihr Modul ein- oder zurücksetzen müssen, indem Sie eine Art von Hoch/Niedrig/Hoch-Pin-Sequenz verwenden, müssen Sie diese Funktionen selbst schreiben.
+
+API-Referenz
+
+Für GPRS-Datenströme bietet diese Bibliothek die standardisierte Arduino Client-Schnittstelle. Für zusätzliche Funktionen siehe dieses Beispiel-Sketch
+
+Problembehandlung
+Sicherstellen stabiler Daten- und Stromverbindungen
+
+Die meisten Module benötigen bis zu 2A, um ordnungsgemäß eine Verbindung zum Netzwerk herzustellen. Das ist 4x, was ein "Standard"-USB liefern kann! Die Verbesserung der Stromversorgung löst tatsächlich Stabilitätsprobleme in vielen Fällen!
+• Lesen Sie über Stromversorgung Ihres Moduls.
+• Halten Sie Ihre Drähte so kurz wie möglich
+• Erwägen Sie, sie für eine stabile Verbindung zu löten
+• Platzieren Sie Ihre Drähte nicht neben Störsignalquellen (Buck-Convertern, Antennen, Oszillatoren usw.)
+• Wenn alles andere zu funktionieren scheint, Sie aber nicht in der Lage sind, eine Verbindung zum Netzwerk herzustellen, überprüfen Sie Ihre Stromversorgung!
+
+Baudraten
+
+Die meisten Module unterstützen eine Art von "Auto-Baud"-Funktion, bei der das Modul versucht, seine Baudrate an das, was es empfängt, anzupassen. TinyGSM implementiert auch seine eigene Auto-Baud-Funktion (TinyGsmAutoBaud(SerialAT, GSMAUTOBAUDMIN, GSMAUTOBAUDMAX);). Obwohl dies beim ersten Verbinden mit einem Modul und beim Testen sehr nützlich ist, sollten diese in jedem Produktionscode NICHT verwendet werden. Sobald Sie die Kommunikation mit dem Modul hergestellt haben, stellen Sie die Baudrate mit der Funktion setBaud(#) ein und bleiben Sie bei dieser Rate.
+
+Defekte Anfangs-Konfiguration
+
+Manchmal (insbesondere wenn Sie mit AT-Befehlen experimentiert haben), kann Ihre Modulkonfiguration ungültig werden. Dies kann zu Problemen führen, wie zum Beispiel:
+
+  Keine Verbindung zum GPRS-Netzwerk
+  Keine Verbindung zum Server
+  Gesendete/erhaltene Daten enthalten ungültige Bytes
+  usw.
+
+Um das Modul auf Werkseinstellungen zurückzusetzen, verwenden Sie dieses Sketch:
+  Datei -> Beispiele -> TinyGSM -> Werkzeuge -> FactoryReset
+
+In einigen Fällen müssen Sie möglicherweise einen anfänglichen APN festlegen, um eine Verbindung zum Mobilfunknetz herzustellen. Versuchen Sie, die Funktion `gprsConnect(APN)` zu verwenden, um einen anfänglichen APN festzulegen, wenn Sie sich nicht im Netzwerk registrieren können. Möglicherweise müssen Sie den APN nach der Registrierung erneut festlegen. (In den meisten Fällen sollten Sie den APN nach der Registrierung festlegen.)
+
+Fehlgeschlagene Verbindung oder keine Daten empfangen
+
+Die erste Verbindung mit einer neuen SIM-Karte, einem neuen Modul oder an einem neuen Standort/Turm kann SEHR lange dauern - bis zu 15 Minuten oder sogar mehr, insbesondere wenn die Signalqualität nicht hervorragend ist. Wenn es sich um Ihre erste Verbindung handelt, müssen Sie möglicherweise Ihre Wartezeiten anpassen und möglicherweise zum Mittagessen gehen, während Sie warten.
+
+Wenn Sie in der Lage sind, eine TCP-Verbindung herzustellen, die Verbindung jedoch schließen, bevor Sie Daten empfangen, versuchen Sie, einen Keep-Alive-Header zu Ihrer Anfrage hinzuzufügen. Einige Module (z. B. das SIM7000 im SSL-Modus) werfen sofort alle ungelesenen Daten weg, wenn der Remoteserver die Verbindung schließt - manchmal ohne jegliche Benachrichtigung, dass Daten zunächst eingetroffen sind. Beim Einsatz von MQTT müssen Sie möglicherweise Ihr Keep-Alive-Intervall (PINGREQ/PINGRESP) reduzieren, um eine kontinuierliche Verbindung aufrechtzuerhalten.
+
+Diagnose-Sketch
+
+Verwenden Sie dieses Sketch, um SIM-Karten- und GPRS-Verbindungsprobleme zu diagnostizieren:
+  Datei -> Beispiele -> TinyGSM -> Werkzeuge -> Diagnostics
+
+Wenn die Diagnose fehlschlägt, kommentieren Sie diese Zeile aus, um einige Debugging-Kommentare aus der Bibliothek zu erhalten:
+`cpp
+#define TINYGSMDEBUG SerialMon
+`
+In jedem benutzerdefinierten Code muss `TINYGSMDEBUG` definiert werden, bevor die TinyGSM-Bibliothek eingeschlossen wird.
+
+Wenn Sie keine offensichtlichen Fehler in der Bibliotheks-Diagnose sehen können, verwenden Sie StreamDebugger, um die gesamte AT-Befehlssequenz an den Haupt-Seriellen Port zu kopieren. Im Diagnosebeispiel kommentieren Sie einfach die Zeile aus:
+`cpp
+#define DUMPATCOMMANDS
+`
+In benutzerdefiniertem Code können Sie dieses Snippet hinzufügen:
+`cpp
+#ifdef DUMPATCOMMANDS
+  #include <StreamDebugger.h>
+  StreamDebugger debugger(SerialAT, SerialMon);
+  TinyGsm modem(debugger);
+#else
+  TinyGsm modem(SerialAT);
+#endif
+`
+
+Probleme mit der Webanfrage-Formatierung - "aber es funktioniert mit PostMan"
+
+Diese Bibliothek öffnet eine TCP- (oder SSL-) Verbindung zu einem Server. In der OSI-Modell ist das Schicht 4 (oder 5 für SSL). HTTP (GET/POST), MQTT und die meisten anderen Funktionen, die Sie vermutlich verwenden möchten, leben in der Regel auf Schicht 7. Das bedeutet, dass Sie entweder die oberste Schicht manuell codieren oder eine andere Bibliothek (wie HTTPClient oder PubSubClient) verwenden müssen, um dies für Sie zu tun. Werkzeuge wie PostMan zeigen auch Schicht 7, nicht Schicht 4/5 wie TinyGSM. Wenn Sie erfolgreich eine Verbindung zu einem Server herstellen, aber Antworten wie "schlechte Anfrage" (oder keine Antwort) erhalten, liegt das Problem wahrscheinlich an Ihrer Formatierung. Hier sind einige Tipps zum manuellen Schreiben von Schicht 7 (insbesondere HTTP-Anfragen):
+• Sehen Sie sich das "WebClient"-Beispiel an
+• Stellen Sie sicher, dass Sie alle erforderlichen Header einschließen.
+    - Wenn Sie mit PostMan testen, stellen Sie sicher, dass Sie die "automatisch generierten" Header einsehen; Sie werden wahrscheinlich überrascht sein, wie viele von ihnen es gibt.
+• Verwenden Sie `client.print("...")`, oder `client.write(buf, #)`, oder sogar `client.write(String("..."))`, nicht `client.write("...")`, um zu verhindern, dass Text zeilenweise (im Schreibmaschinenstil) ausgegeben wird.
+• Schließen Sie den gesamten Inhalt jedes Headers oder jeder Zeile innerhalb einer einzigen Zeichenfolge oder Druckanweisung ein
+    - verwenden Sie
+    `cpp
+    client.print(String("GET ") + resource + " HTTP/1.1\r\n");
+    `
+    anstelle von
+    `cpp
+    client.print("GET ");
+    client.print(resource);
+    client.println(" HTTP/1.1")
+    `
+• Stellen Sie sicher, dass zwischen dem letzten Header und dem Inhalt einer POST-Anfrage eine vollständig leere Zeile steht.
+    - Fügen Sie zwei Zeilen zum letzten Header hinzu `client.print("....\r\n\r\n")` oder verwenden Sie ein zusätzliches `client.println()`
+    - Dies ist eine HTTP-Anforderung und leicht zu übersehen.
+
+SoftwareSerial-Probleme
+
+Bei der Verwendung von `SoftwareSerial` (auf Uno, Nano usw.) könnte die Geschwindigkeit 115200 nicht funktionieren. Versuchen Sie, 57600, 38400 oder sogar niedriger auszuwählen - diejenige, die am besten für Sie funktioniert. In einigen Fällen ist 9600 instabil, aber die Verwendung von 38400 hilft usw. Stellen Sie sicher, dass Sie die richtigen TX/RX-Pins im Sketch festgelegt haben. Bitte beachten Sie, dass nicht jeder Arduino-Pin als TX- oder RX-Pin dienen kann. Lesen Sie hier mehr über SoftSerial-Optionen und -Konfiguration hier und hier.
+
+ESP32 Hinweise
+HardwareSerial
+
+Bei der Verwendung von ESP32 HardwareSerial müssen Sie möglicherweise zusätzliche Parameter beim .begin()-Aufruf angeben.
+
+HttpClient
+Sie können die Beispiele von HttpClient oder HttpsClient nicht mit ESP32 Core 1.0.2 kompilieren. Aktualisieren Sie auf 1.0.3, downgraden Sie auf Version 1.0.1 oder verwenden Sie das WebClient-Beispiel.
+
+SAMD21
+
+Bei der Verwendung von SAMD21-basierten Boards müssen Sie möglicherweise einen Sercom-UART-Port anstelle von Serial1 verwenden.
+
+SIM800 und SSL
+
+Einige, aber nicht alle, Versionen des SIM800 unterstützen SSL. Die Unterstützung von SSL hängt von der Firmware-Version und dem individuellen Modul ab. Die Benutzer haben unterschiedliche Erfahrungswerte in Bezug auf die Verwendung von SSL auf dem SIM800, selbst bei anscheinend identischer Firmware. Wenn Sie SSL benötigen und es auf Ihrem SIM800 anscheinend nicht funktioniert, versuchen Sie ein anderes Modul oder verwenden Sie eine sekundäre SSL-Bibliothek.
+
+Welche Version des SIM7000-Codes zu verwenden
+
+Es gibt zwei Versionen des SIM7000-Codes, eine mit TINYGSMMODEMSIM7000 und eine andere mit TINYGSMMODEMSIM7000SSL. Die Version TINYGSMMODEMSIM7000 unterstützt kein SSL, unterstützt jedoch bis zu 8 gleichzeitige Verbindungen. Die Version TINYGSMMODEMSIM7000SSL unterstützt sowohl SSL als auch ungesicherte Verbindungen mit bis zu 2 gleichzeitigen Verbindungen. Warum gibt es also zwei Versionen?
+
+Die "SSL"-Version verwendet die "Anwendungs"-Befehle des SIM7000, während die andere die "TCP-IP-Werkzeugkiste" verwendet. Abhängig von Ihrer Region/Firmware funktioniert möglicherweise die eine oder die andere nicht für Sie. Versuchen Sie beide und verwenden Sie die stabilere.
+
+Wenn Sie kein SSL benötigen, empfehle ich, mit TINYGSMMODEMSIM7000 zu beginnen.
+``
+
+
 
 # Arduino Client interface support
 
@@ -579,9 +867,6 @@ You will not be able to compile the HttpClient or HttpsClient examples with ESP3
 
 When using SAMD21-based boards, you may need to use a sercom uart port instead of `Serial1`.
 
-### Goouuu Tech IOT-GA6 vs AI-Thinker A6 confusion
-
-It turns out that **Goouuu Tech IOT-GA6** is not the same as **AI-Thinker A6**. Unfortunately IOT-GA6 is not supported out of the box yet. There are some hints that IOT-GA6 firmware may be updated to match A6... See [this topic](https://github.com/vshymanskyy/TinyGSM/issues/164).
 
 ### SIM800 and SSL
 
@@ -640,24 +925,18 @@ If you do not need SSL, I recommend starting with `TINY_GSM_MODEM_SIM7000`.
 <img width="761" alt="gp11" src="https://github.com/user-attachments/assets/22e7c95f-6fce-4571-9b41-e666494fa800" />
 
 
-Alles klar, ich habe den Text entsprechend deiner Angaben formuliert und den rechtlichen Hinweis (Disclaimer) am Ende ergänzt.
-
-Hier ist das vollständige Markdown-Segment:
-
 ---
 
 ## Urheberrecht und Nutzungsbedingungen
 
-> ### **© ALLE RECHTE VORBEHALTEN**
-> 
-> 
-> Dieses Projekt wurde von **Koffitse Aboudou** im Rahmen des Studiums an der **Technischen Hochschule Deggendorf (THD)** im Auftrag der **Mantro GmbH**  realisiert.
-> **Nutzungshinweise:**
+### **© ALLE RECHTE VORBEHALTEN**
 
-> * Jegliche Vervielfältigung, Verbreitung oder kommerzielle Nutzung des Inhalts, der Konzepte oder der Implementierungscodes – auch auszugsweise – ist ohne ausdrückliche schriftliche Genehmigung des Urhebers und der beteiligten Institutionen untersagt.
-> * Die Inhalte dienen ausschließlich Dokumentations- und Prüfungszwecken im akademischen Kontext.
-> 
-> 
+Dieses Projekt wurde von **Koffitse Aboudou** im Rahmen des Studiums an der **Technischen Hochschule Deggendorf (THD)** im Auftrag der **Mantro GmbH**  realisiert.
+
+**Nutzungshinweise:**
+
+* Jegliche Vervielfältigung, Verbreitung oder kommerzielle Nutzung des Inhalts, der Konzepte oder der Implementierungscodes – auch auszugsweise – ist ohne ausdrückliche schriftliche Genehmigung des Urhebers und der beteiligten Institutionen untersagt.
+* Die Inhalte dienen ausschließlich Dokumentations- und Prüfungszwecken im akademischen Kontext. 
 
 ---
 
