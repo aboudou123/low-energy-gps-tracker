@@ -29,20 +29,33 @@ Die Funktionalität muss auch unter schwierigen Bedingungen sichergestellt sein.
 
 Low-Energy GPS Tracker
 Table of Contents
+
 • Research Objective
+
 • What is GPS?
+
 • Primary Functions
+
 • Literature Review
+
 • Problem Statement
+
 • Implementation
+
   - Wireless Network
   - Wearable Sensors
   - Cloud Analysis Services
+    
 • System Architecture
+
 • Results and Discussions
+
 • Comparison of Communication Technologies
+
   - LoRaWAN vs. NB-IoT
+
 • LPWAN Basics
+
 • References
 
 **Research Objective**
