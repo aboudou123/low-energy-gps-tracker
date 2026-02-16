@@ -44,49 +44,66 @@ Table of Contents
 • LPWAN Basics
 • References
 
-Research Objective
+**Research Objective**
+
 • Explain what GPS and other tracking technologies are.
 • Describe the structure and functionality of the GPS system.
 • Research the technologies involved in developing GPS tracking systems.
 • Compare various IoT technologies: Low-Power Wide-Area Network (LPWA).
 
-What is GPS?
+# What is GPS?
+
 Global Positioning System (GPS) is a network of satellites that orbit the Earth, providing positional information about their locations.
 
-Segments of GPS
+## Segments of GPS
+
 Space Segment: The satellites themselves.
 Ground Segment: The infrastructure that controls the satellites.
 User Segment: The devices that receive GPS signals.
 
-Primary Functions
+## Primary Functions
+
 • Positioning and coordinates.
 • Measuring distance and direction between waypoints.
 • Progress reporting for travel.
 • Accurate timekeeping.
 
-Literature Review
+## Literature Review
 • IBM Tracking Solution: Investigates advanced tracking methodologies and their applications.
 
-Problem Statement
-Poaching threatens thousands of endangered species annually. Research indicates that animal movement varies based on perceived threats. The aim is to develop an early warning system that alerts rangers to poachers' presence using a long-range IoT tracking system with LoRaWAN.
+## Problem Statement
 
-Implementation
-Wireless Network
+Poaching threatens thousands of endangered species annually.
+Research indicates that animal movement varies based on perceived threats. 
+The aim is to develop an early warning system that alerts rangers to poachers' presence using a long-range IoT tracking system with LoRaWAN.
+
+## Implementation
+
+**Wireless Network**
+
 • Utilizes LoRaWAN for low-energy communication.
 
-Wearable Sensors
+**Wearable Sensors**
+
 • Integrates GPS modules (e.g., NEO-6M) for tracking.
 
-Cloud Analysis Services
+**Cloud Analysis Services**
+
 • Employs cloud-based services for data analysis and reporting.
 
-System Architecture
-Hardware Components
+## System Architecture
+### Hardware Components
+
 • Arduino Mega
+
 • Dragino LoRa/GPS Shield (868 MHz)
+
 • SIM808 Expansion Shield
+
 • GPS Antennas
+
 • External Power Supply
+
 • Wiring and SIM Card
   
 `yaml
@@ -95,7 +112,8 @@ version: 1.8.7
 `
 
 
-Software
+## Software
+
 • The Arduino Mega 2560 is a microcontroller with:
   - 54 digital I/O pins
   - 16 analog inputs
