@@ -1,6 +1,6 @@
 # low-energy-gps-tracker
 
-``
+
 markdown
 
 Low-Energy GPS Tracker
@@ -146,7 +146,9 @@ Low Power Wide Area Networks (LPWAN) are designed for IoT applications, addressi
 
 ``
 
-References
+References:
+
+
 • [LoRa Alliance. "Long Range Wide Area Network". LoRa Alliance
 ](https://lora-alliance.org/lorawan-news/lorawan-most-common-applications-and-use-cases/)
 
