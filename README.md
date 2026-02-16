@@ -1,6 +1,7 @@
 # low-energy-gps-tracker
 
-``markdown
+``
+markdown
 
 Low-Energy GPS Tracker
 Table of Contents
@@ -143,12 +144,20 @@ LoRaWAN vs. NB-IoT
 LPWAN Basics
 Low Power Wide Area Networks (LPWAN) are designed for IoT applications, addressing the limitations of cellular technologies and short-range networks in terms of cost and power consumption.
 
-
+``
 
 References
-• LoRa Alliance. "Long Range Wide Area Network". LoRa Alliance
-• SigFox. "Sigfox Solutions". SigFox
-• Mangalvedhe, N., Ratasuk, R., & Ghosh, A. (2016). "NB-IoT Deployment Study for Low Power Wide Area Cellular IoT". PIMRC.
-• Mikhaylov, K., Petaejaejaervi, J., & Haenninen, T. (2016). "Analysis of Capacity and Scalability of the LoRa Low Power Wide Area Network Technology". European Wireless.
-• Lauridsen, M., Kovacs, I., Mogensen, P., Sørensen, M., & Holst, S. (2016). "Coverage and Capacity Analysis of LTE-M and NB-IoT in a Rural Area". VTC Fall.
-``
+• [LoRa Alliance. "Long Range Wide Area Network". LoRa Alliance
+](https://lora-alliance.org/lorawan-news/lorawan-most-common-applications-and-use-cases/)
+
+• [SigFox. "Sigfox Solutions". SigFox](https://timly.com/en/?utm_term=asset%20tracking&utm_campaign=DACH%2B%20%7C%20Generic&utm_source=google&utm_medium=cpc&hsa_acc=7499781921&hsa_cam=9512934857&hsa_grp=181182327037&hsa_ad=759070018278&hsa_src=g&hsa_tgt=kwd-10297491&hsa_kw=asset%20tracking&hsa_mt=p&hsa_net=adwords&hsa_ver=3&gad_source=1&gad_campaignid=9512934857&gbraid=0AAAAACe_3kwXmE9TAmRVpXHN9kU7jIjaa&gclid=CjwKCAiAncvMBhBEEiwA9GU_fqCOXbUsL9BbDKPmbEaytkV4ahmA-mhIxOBbmGGsfRHrDnzB7osj4xoCImoQAvD_BwE)
+
+•[ Mangalvedhe, N., Ratasuk, R., & Ghosh, A. (2016). "NB-IoT Deployment Study for Low Power Wide Area Cellular IoT". PIMRC.](https://dl.acm.org/doi/10.1109/PIMRC.2016.7794567)
+
+•[ Mikhaylov, K., Petaejaejaervi, J., & Haenninen, T. (2016). "Analysis of Capacity and Scalability of the LoRa Low Power Wide Area Network Technology". European Wireless.
+](https://scholar.google.com/citations?view_op=view_citation&hl=en&user=UEX-T8EAAAAJ&citation_for_view=UEX-T8EAAAAJ:9yKSN-GCB0IC)
+
+[• Lauridsen, M., Kovacs, I., Mogensen, P., Sørensen, M., & Holst, S. (2016). "Coverage and Capacity Analysis of LTE-M and NB-IoT in a Rural Area". VTC Fall.
+](https://www.researchgate.net/publication/315472110_Coverage_and_Capacity_Analysis_of_LTE-M_and_NB-IoT_in_a_Rural_Area)
+
+
