@@ -633,7 +633,29 @@ If you do not need SSL, I recommend starting with `TINY_GSM_MODEM_SIM7000`.
 <img width="1210" alt="gp10" src="https://github.com/user-attachments/assets/4b7660b4-805d-45bf-bbe0-c63086185649" />
 
 <img width="761" alt="gp11" src="https://github.com/user-attachments/assets/22e7c95f-6fce-4571-9b41-e666494fa800" />
-<img width="761" alt="gp11" src="https://github.com/user-attachments/assets/8f34de26-a23b-4441-a9cc-b53ae09a5f2f" />
+
+
+Alles klar, ich habe den Text entsprechend deiner Angaben formuliert und den rechtlichen Hinweis (Disclaimer) am Ende ergänzt.
+
+Hier ist das vollständige Markdown-Segment:
+
+---
+
+## Urheberrecht und Nutzungsbedingungen
+
+> ### **© ALLE RECHTE VORBEHALTEN**
+> 
+> 
+> Dieses Projekt wurde von **Koffitse Aboudou** im Rahmen des Studiums an der **Technischen Hochschule Deggendorf (THD)** im Auftrag der **Mantro GmbH**  realisiert.
+> **Nutzungshinweise:**
+
+> * Jegliche Vervielfältigung, Verbreitung oder kommerzielle Nutzung des Inhalts, der Konzepte oder der Implementierungscodes – auch auszugsweise – ist ohne ausdrückliche schriftliche Genehmigung des Urhebers und der beteiligten Institutionen untersagt.
+> * Die Inhalte dienen ausschließlich Dokumentations- und Prüfungszwecken im akademischen Kontext.
+> 
+> 
+
+---
+
 
 
 
