@@ -1,6 +1,7 @@
 # low-energy-gps-tracker
 
 ``markdown
+
 Low-Energy GPS Tracker
 Table of Contents
 • Research Objective
@@ -69,12 +70,48 @@ Arduino IDE
 version: 1.8.7
 `
 
+
 Software
 • The Arduino Mega 2560 is a microcontroller with:
   - 54 digital I/O pins
   - 16 analog inputs
   - 4 UARTs (hardware serial ports)
-  
+
+
+
+## Hardware:
+
+ <img width="1055" height="607" alt="image" src="https://github.com/user-attachments/assets/740245d0-79df-456f-b3a2-3526102a7742" />
+
+ <img width="1057" height="591" alt="image" src="https://github.com/user-attachments/assets/8ed95525-4e68-46b3-9c25-6d5132c036c8" />
+
+ 
+ <img width="1077" height="557" alt="image" src="https://github.com/user-attachments/assets/6272548a-444c-4e0a-b969-842d04fc6931" />
+
+
+<img width="1077" height="579" alt="image" src="https://github.com/user-attachments/assets/533cb7b6-5e62-43b7-8ce3-fb82938a3fa9" />
+
+<img width="1086" height="573" alt="image" src="https://github.com/user-attachments/assets/2d920a00-0cc0-4eb2-aea9-e6916810b904" />
+
+<img width="986" height="532" alt="image" src="https://github.com/user-attachments/assets/13d06ecd-ed67-4a29-8aed-4fba44a22bc0" />
+
+<img width="1091" height="582" alt="image" src="https://github.com/user-attachments/assets/43542ec4-4daf-4c1b-89ff-d23ed55f5b3f" />
+
+<img width="1088" height="623" alt="image" src="https://github.com/user-attachments/assets/57d083fd-9612-430f-8b5c-0df6732655cb" />
+
+
+<img width="1125" height="608" alt="image" src="https://github.com/user-attachments/assets/9db31651-5b32-47e8-bfa8-e37fa37cfc74" />
+
+
+<img width="1014" height="592" alt="image" src="https://github.com/user-attachments/assets/80095c74-6b99-4ccb-be99-93d4c1c71aed" />
+
+
+<img width="1049" height="636" alt="image" src="https://github.com/user-attachments/assets/8410c0a6-0e12-43ec-9b54-a14233aa506f" />
+
+
+
+
+
 
 Results and Discussions
 The SD card module has six pins notable for its functions:
@@ -105,6 +142,8 @@ LoRaWAN vs. NB-IoT
 
 LPWAN Basics
 Low Power Wide Area Networks (LPWAN) are designed for IoT applications, addressing the limitations of cellular technologies and short-range networks in terms of cost and power consumption.
+
+
 
 References
 • LoRa Alliance. "Long Range Wide Area Network". LoRa Alliance
