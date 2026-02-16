@@ -22,6 +22,7 @@ Der mobile Betrieb stellt hohe Anforderungen an das Energiemanagement.
 Die Funktionalität muss auch unter schwierigen Bedingungen sichergestellt sein.
 
 * **Herausforderung:** Einsatz in Zielgebieten mit unzureichender stationärer Mobilfunkabdeckung.
+* 
 * **Lösung:** Gewährleistung der Standortermittlung und Datenübertragung trotz schwacher Infrastruktur.
 
 ---
