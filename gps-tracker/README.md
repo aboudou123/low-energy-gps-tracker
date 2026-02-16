@@ -122,6 +122,11 @@ The aim is to develop an early warning system that alerts rangers to poachers' p
 
 ## System Architecture
 
+
+<img width="811" height="638" alt="image" src="https://github.com/user-attachments/assets/a0624515-ee5b-47b2-8db8-d0e45d604b4b" />
+
+
+
 ### Hardware Components
 
 • Arduino Mega
