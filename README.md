@@ -1,7 +1,30 @@
-# low-energy-gps-tracker
 
+# Projekt: Tier-GPS-Tracker (Mantro GmbH)
 
-markdown
+---
+
+## Motivation
+
+Die Firma **Mantro GmbH** beabsichtigt die Entwicklung eines zuverlässigen GPS-Trackers für Tiere (beispielweise für den Einsatz bei Jagdhunden).
+
+Das Projekt konzentriert sich auf die Symbiose zweier kritischer Erfolgskriterien:
+
+### 1. Energieeffizienz
+
+Der mobile Betrieb stellt hohe Anforderungen an das Energiemanagement.
+
+* **Ziel:** Ein minimaler Energieverbrauch.
+* **Fokus:** Besonders in Ruhephasen, in denen der Tracker nicht aktiv benötigt wird, muss die Laufzeit maximiert werden.
+
+### 2. Zuverlässigkeit & Netzabdeckung
+
+Die Funktionalität muss auch unter schwierigen Bedingungen sichergestellt sein.
+
+* **Herausforderung:** Einsatz in Zielgebieten mit unzureichender stationärer Mobilfunkabdeckung.
+* **Lösung:** Gewährleistung der Standortermittlung und Datenübertragung trotz schwacher Infrastruktur.
+
+---
+## Lesons
 
 Low-Energy GPS Tracker
 Table of Contents
